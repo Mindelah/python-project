@@ -1,9 +1,13 @@
 import requests
 
+
 def get_weather(latitude, longitude):
-    response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m")
+    response = requests.get(
+        f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m"
+    )
     data = response.json()
-    return data['current']['temperature_2m']
+    return data["current"]["temperature_2m"]
+
 
 # Get temperature for different cities
 paris_temp = get_weather(48.85, 2.35)
